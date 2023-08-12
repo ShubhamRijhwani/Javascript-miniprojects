@@ -1,0 +1,58 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+.container{
+    display: flex;
+    width: 90vw;
+}
+
+.panel{
+    background-image: cover; 
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 80vh;
+    border-radius: 50px;
+    flex:0.5;
+    position: relative;
+    transition: flex 0.5s ease-in; /* The size of the panel container see in panel active to understand*/
+    color: #fff;
+    cursor: pointer;
+    margin: 10px;
+}
+
+.panel h3{
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    opacity: 0; /*We only need the content when panel is active see panel active h3*/
+}
+
+.panel.active{
+    flex: 5;
+}
+
+.panel.active h3{
+    opacity: 1;
+    transition: opacity 0.4s ease-in 0.4s; /*tansition for content written in h3*/
+}
+
+@media(max-width:480px){
+    .container{
+        width: 100vw;
+    }
+
+    .panel:nth-of-type(4),.panel:nth-of-type(5){
+        display: none;
+    }
+}
